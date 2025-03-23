@@ -1,0 +1,112 @@
+:root {
+    --background: #f0f0f0;
+    --background-2: #e0e0e0;
+    --background-3: #d0d0d0;
+    --background-4: #b4b4b4;
+    --text: #000;
+    --text-2: #333;
+    --text-3: #666;
+
+    --primary: #35b76b;
+    --primary-2: #228049;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0f0f0f;
+        --background-2: #222222;
+        --background-3: #333333;
+        --background-4: #444444;
+        --text: #fff;
+        --text-2: #ddd;
+        --text-3: #aaa;
+
+        --primary: #3dfd8d;
+        color-scheme: dark;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--text);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    text-rendering: optimizelegibility;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+input {
+    accent-color: var(--primary);
+    transition: border 0.2s;
+}
+
+label {
+    user-select: none;
+}
+
+input[type="text"],
+input[type="url"],
+textarea {
+    padding: .5em .7em;
+    border: 2px solid var(--background-4);
+    border-radius: 5em;
+    background-color: var(--background-3);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    margin: 0.5em 0;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+button,
+input[type="file"]::file-selector-button {
+    font-family: "Inter", sans-serif;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 5em;
+    background-color: var(--primary);
+    border: 2px solid var(--primary);
+    color: var(--background);
+    font-size: 1em;
+    margin: 0.5em 0;
+    cursor: pointer;
+    transition: border 0.2s;
+}
+
+input[type="file"]::file-selector-button {
+    margin: 0;
+    margin-right: .5em;
+}
+
+button:hover,
+button:active,
+button:focus,
+input[type="file"]::file-selector-button:hover,
+input[type="file"]::file-selector-button:active,
+input[type="file"]::file-selector-button:focus {
+    border-color: var(--primary-2);
+}
+
+textarea {
+    border-radius: 1em;
+}
