@@ -5,38 +5,53 @@
     let time = new Date();
     let timeOffset = 0; // Difference between server and local time
     let requestDuration = 0;
+    let lastUpdate = Date.now();  // To track the last update
 
     async function syncTime() {
         const requestStart = Date.now();
         const response = await fetch('/requests/date/milliseconds');
         const serverTime = await response.json();
         const requestEnd = Date.now();
+        
+        // Calculate round-trip request duration (in milliseconds)
         requestDuration = (requestEnd - requestStart) / 2;
 
-        // Calculate offset between server and local time
+        // Adjust server time with round-trip time
         const adjustedServerTime = serverTime + requestDuration;
+
+        // Calculate the offset between server and local time
         timeOffset = adjustedServerTime - Date.now();
         time = new Date(adjustedServerTime);
     }
 
     function updateClock() {
-        // Use current time plus the calculated offset
-        time = new Date(Date.now() + timeOffset);
+        // Sync time with the adjusted offset
+        time = new Date(Date.now() + timeOffset + 1000);
+    }
+
+    function syncToNextSecond() {
+        // Get the current time and calculate the time to the next full second
+        const now = new Date();
+        const msToNextSecond = 1000 - now.getMilliseconds();
+        
+        // Sync immediately if close to the next second
+        if (msToNextSecond <= 100) { // Allow a small margin for syncing
+            updateClock();
+        }
+
+        // Continue updating the clock as the page refreshes at the next frame
+        requestAnimationFrame(syncToNextSecond);
     }
 
     onMount(async () => {
         await syncTime();
         clockElement.scrollIntoView();
 
-        // Align updates with the start of each second
-        const now = new Date();
-        const delay = 1000 - now.getMilliseconds();
-        
-        setTimeout(() => {
-            updateClock();
-            const interval = setInterval(updateClock, 1000);
-            return () => clearInterval(interval);
-        }, delay);
+        // Update immediately after syncing with server
+        updateClock();
+
+        // Sync to the next full second using requestAnimationFrame
+        syncToNextSecond();
     });
 </script>
 
@@ -45,7 +60,7 @@
 </svelte:head>
 
 <div class="debug-info">
-    <div>Difference with server was {(-timeOffset<=0?"":"+")}{-(timeOffset / 1000).toFixed(3)} seconds (±{(requestDuration/1000).toFixed(3)} seconds)</div>
+    <div>Difference with server was {(-timeOffset <= 0 ? "" : "+")}{-(timeOffset / 1000).toFixed(3)} seconds (±{(requestDuration / 1000).toFixed(3)} seconds)</div>
 </div>
 
 <div class="clock" bind:this={clockElement}>
@@ -57,7 +72,6 @@
 <style>
     .clock {
         height: 100vh;
-        width: 100vw;
         display: flex;
         align-items: center;
         justify-content: center;
