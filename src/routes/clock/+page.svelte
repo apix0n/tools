@@ -8,7 +8,7 @@
 
     async function syncTime() {
         const requestStart = Date.now();
-        const response = await fetch('/requests/date/miliseconds');
+        const response = await fetch('/requests/date/milliseconds');
         const serverTime = await response.json();
         const requestEnd = Date.now();
         requestDuration = (requestEnd - requestStart) / 2;
