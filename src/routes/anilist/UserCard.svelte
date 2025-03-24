@@ -53,6 +53,7 @@
         </div>
         <span class="id">{user.id}</span>
     </div>
+    <span class="user-creation-date">Account created on {new Date(user.createdAt * 1000).toLocaleString("en-GB")}</span>
     {#if user.about}
         <div class="about">{@html processAboutHtml(user.about)}</div>
     {/if}
@@ -91,7 +92,17 @@
 
     .user-info .left h2 {
         margin: 0;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .user-creation-date {
+        margin-top: -1rem;
+        padding: 1rem;
+        display: block;
+        width: 100%;
+        background-color: var(--background-3);
+        color: var(--text-3);
+        text-align: center;
     }
 
     .avatar {
@@ -103,9 +114,8 @@
     }
 
     .about {
-        margin-top: -1rem;
         padding: 1rem;
-        border-top: solid 2px var(--background-3);
+        border-top: solid 2px var(--background-4);
 
         & :global {
             img, video, iframe {

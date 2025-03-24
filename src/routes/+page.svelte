@@ -1,35 +1,65 @@
 <script>
-    import Container from "../components/Container.svelte";
-
-  const tools = [
-    { name: 'Requests', path: 'requests', icon: '🔄' },
-    { name: 'AniList User Info', path: 'anilist/user', icon: '📊' },
-    { name: 'YouTube Thumbnails', path: 'youtube/thumbnails', icon: '🎬' },
-    { name: 'Image Base64', path: 'image/base64', icon: '🖼️' },
-    { name: "Clock", path: "clock", icon: "🕒" },
-  ];
+  import Container from "../components/Container.svelte";
+  import ToolCard from "../components/ToolCard.svelte";
+  import { tools } from "$lib/tools";
 </script>
 
 <Container>
-    <div class="top">
-        <h1>Tools</h1>
-        <p>a set of web tools i created for things i couldn't do easily</p>
+  <div class="top">
+    <h1>apix tools</h1>
+    <span>A set of web tools I created for things I needed to do at some point, and couldn't do easily.</span>
+    <div class="links">
+      <a href="https://github.com/apix0n/tools" target="_blank"><button>View on GitHub</button></a>
+      <a href="https://github.com/apix0n/tools/issues/new" target="_blank"><button class="secondary">Report a problem</button></a>
     </div>
+  </div>
+  <span class="sep"></span>
   <div class="grid">
     {#each tools as tool}
-      <a href={tool.path} class="card">
-        <span class="icon">{tool.icon}</span>
-        <span class="name">{tool.name}</span>
-      </a>
+      <ToolCard {tool} />
     {/each}
   </div>
 </Container>
 
 <style>
-  h1 {
+  .top {
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    gap: 1rem;
+    padding: 3rem 0;
+    padding-top: 5rem;
+    h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+  }
+
+  .sep {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: var(--background-4);
     margin-bottom: 2rem;
-    font-size: 2.5rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .top {
+      padding: 2rem 0;
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .sep {
+      display: none;
+    }
+  }
+
+  .links {
+    display: flex;
+    justify-content: center;
+    gap: .7rem;
   }
 
   .grid {
@@ -37,34 +67,5 @@
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.5rem;
     padding: 1rem;
-  }
-
-  .card {
-    background: var(--background-2);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    color: var(--text);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  }
-
-  .icon {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .name {
-    font-size: 1.1rem;
-    font-weight: 500;
-    text-align: center;
   }
 </style>

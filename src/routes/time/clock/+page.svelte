@@ -1,11 +1,12 @@
 <script>
     import { onMount } from "svelte";
+    import { afterNavigate } from "$app/navigation";
     export let clockElement;
 
     let time = new Date();
+    let startTime = Date.now();
     let timeOffset = 0; // Difference between server and local time
     let requestDuration = 0;
-    let lastUpdate = Date.now();  // To track the last update
 
     async function syncTime() {
         const requestStart = Date.now();
@@ -14,7 +15,7 @@
         const requestEnd = Date.now();
         
         // Calculate round-trip request duration (in milliseconds)
-        requestDuration = (requestEnd - requestStart) / 2;
+        requestDuration = requestEnd - requestStart;
 
         // Adjust server time with round-trip time
         const adjustedServerTime = serverTime + requestDuration;
@@ -26,32 +27,49 @@
 
     function updateClock() {
         // Sync time with the adjusted offset
-        time = new Date(Date.now() + timeOffset + 1000);
+        time = new Date(Date.now() + timeOffset);
     }
 
-    function syncToNextSecond() {
-        // Get the current time and calculate the time to the next full second
-        const now = new Date();
-        const msToNextSecond = 1000 - now.getMilliseconds();
+    function startClock() {
+        let expectedTime = Date.now();
         
-        // Sync immediately if close to the next second
-        if (msToNextSecond <= 100) { // Allow a small margin for syncing
+        // Update immediately first
+        updateClock();
+                
+        function tick() {
+            const now = Date.now();
+            const drift = now - expectedTime;
+            
+            // If drift is more than 100ms, resync
+            if (Math.abs(drift) > 100) {
+                expectedTime = now;
+            } else {
+                expectedTime += 1000;
+            }
+
             updateClock();
+            
+            // Schedule next update precisely
+            const nextTick = Math.max(0, expectedTime - Date.now());
+            setTimeout(() => requestAnimationFrame(tick), nextTick);
         }
 
-        // Continue updating the clock as the page refreshes at the next frame
-        requestAnimationFrame(syncToNextSecond);
+        // Start on the next second boundary
+        const msToNextSecond = 1000 - (Date.now() % 1000);
+        setTimeout(() => {
+            expectedTime = Date.now();
+            tick();
+        }, msToNextSecond);
     }
 
     onMount(async () => {
         await syncTime();
-        clockElement.scrollIntoView();
-
-        // Update immediately after syncing with server
         updateClock();
-
-        // Sync to the next full second using requestAnimationFrame
-        syncToNextSecond();
+        startClock();
+    });
+    
+    afterNavigate(() => {
+        clockElement?.scrollIntoView();
     });
 </script>
 
@@ -70,30 +88,6 @@
 </div>
 
 <style>
-    .clock {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 15vw;
-        font-weight: 700;
-        font-family: monospace;
-        margin: 0;
-        padding: 0;
-    }
-
-    .digit {
-        display: inline-block;
-        width: 1ch;
-        text-align: center;
-    }
-
-    .digit.separator {
-        width: 0.5ch;
-        color: var(--primary);
-        font-weight: 400;
-    }
-
     .debug-info {
         padding: 1rem;
         font-size: 1rem;

@@ -26,6 +26,10 @@
     }
 }
 
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -90,7 +94,7 @@ input[type="file"]::file-selector-button {
     font-size: 1em;
     margin: 0.5em 0;
     cursor: pointer;
-    transition: border 0.2s;
+    transition: border-color 0.2s, background-color .2s;
 }
 
 input[type="file"]::file-selector-button {
@@ -104,7 +108,20 @@ button:focus,
 input[type="file"]::file-selector-button:hover,
 input[type="file"]::file-selector-button:active,
 input[type="file"]::file-selector-button:focus {
+    outline: none;
     border-color: var(--primary-2);
+}
+
+button.secondary {
+    background: var(--background-2);
+    border-color: var(--primary-2);
+    color: var(--primary);
+}
+
+button.secondary:hover,
+button.secondary:active,
+button.secondary:focus {
+    background: var(--background-3);
 }
 
 textarea {

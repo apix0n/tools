@@ -34,6 +34,7 @@
                             options {
                                 profileColor
                             }
+                            createdAt
                         }
                     }
                     `,

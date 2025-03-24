@@ -60,7 +60,7 @@
     .endpoint {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: .25rem 1rem;
         padding: 0.25rem 1rem;
         background-color: var(--background-2);
         border-radius: 1em;
@@ -84,5 +84,23 @@
         flex-grow: 1;
         word-wrap: break-word;
         word-break: break-all;
+        width: 100%;
     }
+
+    @media screen and (max-width: 600px) {
+        .endpoint {
+            padding: 1rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .method {
+            margin-bottom: 0.5rem;
+        }
+
+        button {
+            flex-grow: 1;
+        }
+    }
+    
 </style>
