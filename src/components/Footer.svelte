@@ -4,7 +4,7 @@
 
 <footer>
   <div class="footer-content">
-    <p><span class="separator">©</span> 2025 apix</p>
+    <p>made by apix with <span class="separator">❤</span></p>
     <div class="footer-links">
       <a href="https://github.com/apix0n" target="_blank" rel="noopener">GitHub</a>
       <span class="separator">•</span>

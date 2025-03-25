@@ -124,6 +124,13 @@ button.secondary:focus {
     background: var(--background-3);
 }
 
+@media (prefers-color-scheme: light) {
+    button.secondary {
+        border-color: var(--primary);
+        color: var(--primary-2);
+    }
+}
+
 textarea {
     border-radius: 1em;
 }

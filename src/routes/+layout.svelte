@@ -9,13 +9,13 @@
 </svelte:head>
 
 <div class="layout">
-    {#if page.route.id !== "/"}
+    {#if page.data.header !== false}
         <Header />
     {/if}
 
     <slot />
 
-    {#if !page.route.id.startsWith("/time/")}
+    {#if page.data.footer !== false}
         <Footer />
     {/if}
 </div>
