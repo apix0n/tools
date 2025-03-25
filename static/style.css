@@ -83,7 +83,8 @@ textarea:focus {
 }
 
 button,
-input[type="file"]::file-selector-button {
+input[type="file"]::file-selector-button,
+select {
     font-family: "Inter", sans-serif;
     padding: 0.5em 1em;
     border: none;
@@ -110,6 +111,15 @@ input[type="file"]::file-selector-button:active,
 input[type="file"]::file-selector-button:focus {
     outline: none;
     border-color: var(--primary-2);
+}
+
+input.square,
+input[type="datetime-local"] {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: unset;
+    background: var(--background-3);
+    color: var(--text);
 }
 
 button.secondary {

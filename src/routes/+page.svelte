@@ -75,7 +75,7 @@
 
         .grid {
             gap: 1rem;
-            padding: .5rem;
+            padding: 0;
         }
     }
 </style>

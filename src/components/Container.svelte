@@ -32,7 +32,7 @@
     @media (max-width: 540px) {
         .container {
             max-width: 100%;
-            padding: 0 0.5rem;
+            padding: 0 1rem;
         }
     }
 </style>

@@ -35,4 +35,10 @@ export const tools = [
         icon: "⏲️",
         description: "Just a fullscreen timer that doesn't annoy you."
     },
+    {
+        name: "Time formats",
+        path: "/time/formats",
+        icon: "🕰️",
+        description: "Easily export a time string in a chosen common format."
+    },
 ];
