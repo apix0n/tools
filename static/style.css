@@ -127,3 +127,12 @@ button.secondary:focus {
 textarea {
     border-radius: 1em;
 }
+
+code {
+    font-family: monospace;
+    background-color: var(--background-3);
+    font-size: .8rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    word-wrap: break-word;
+}

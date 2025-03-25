@@ -76,13 +76,8 @@
     }
 
     .url {
-        font-family: monospace;
-        background-color: var(--background-3);
         font-size: 1rem;
-        padding: 0.25rem 0.5rem;
-        border-radius: 6px;
         flex-grow: 1;
-        word-wrap: break-word;
         word-break: break-all;
         width: 100%;
     }

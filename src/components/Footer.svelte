@@ -1,10 +1,16 @@
- <footer>
+<script>
+  import { version } from "$app/environment";
+</script>
+
+<footer>
   <div class="footer-content">
     <p><span class="separator">©</span> 2025 apix</p>
     <div class="footer-links">
       <a href="https://github.com/apix0n" target="_blank" rel="noopener">GitHub</a>
       <span class="separator">•</span>
       <a href="https://bsky.app/profile/aapix.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+      <span class="separator">•</span>
+      <code>{version}</code>
     </div>
   </div>
 </footer>
