@@ -10,6 +10,7 @@ export default defineConfig({
 				name: "apix tools",
 				short_name: "tools",
 				theme_color: "#3dfd8d",
+				scope: "/",
 				icons: [
 					{
 						src: '/apple-touch-icon.png',
