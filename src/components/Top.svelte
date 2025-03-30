@@ -28,10 +28,11 @@
             padding: 3rem 1rem;
         }
     }
-
+    
     @media (max-width: 540px) {
         .head {
             padding: 2rem 0.5rem;
+            padding-top: 1rem;
         }
     }
 </style>

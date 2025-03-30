@@ -1,0 +1,10 @@
+/* TEAM */
+    Developer: apix
+    Contact: apixon@outlook.com
+    GitHub: github.com/apix0n
+
+/* SITE */
+    Language: English
+    Doctype: HTML5
+    Standards: HTML5, CSS3, JavaScript
+    Framework: SvelteKit

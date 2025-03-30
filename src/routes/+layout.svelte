@@ -3,6 +3,9 @@
     import Footer from "../components/Footer.svelte";
     import { page } from "$app/state";
     import { pwaInfo } from 'virtual:pwa-info';
+    import OpenGraphHead from "../components/OpenGraphHead.svelte";
+    import { tools } from "$lib/tools";
+    import ThemeColor from "../components/ThemeColor.svelte";
 
     if (page.error !== null) {
         page.data.footer = page.data.header = false
@@ -15,6 +18,9 @@
     <title>{page.data?.title ? page.data.title + " | " : ""}apix tools</title>
     {@html webManifestLink}
 </svelte:head>
+
+<ThemeColor/>
+<OpenGraphHead title={page.data.title} description={tools.filter(item => item.path === page.route.id)[0]?.description}/>
 
 <div class="layout">
     {#if page.data.header !== false}

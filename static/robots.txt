@@ -1,0 +1,5 @@
+# made by apix
+# https://github.com/apix0n/tools
+
+User-agent: *
+Disallow:
