@@ -41,4 +41,10 @@ export const tools = [
         icon: "🕰️",
         description: "Easily export a time string in a chosen common format."
     },
+    {
+        name: "osu! Seasonal Backgrounds",
+        path: "/osu/seasonal-backgrounds",
+        icon: "🍂",
+        description: "Get this season's osu! Seasonal Backgrounds."
+    }
 ];
