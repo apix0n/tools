@@ -1,11 +1,11 @@
 <script>
-    import Header from "../components/Header.svelte";
-    import Footer from "../components/Footer.svelte";
+    import Header from "$components/Header.svelte";
+    import Footer from "$components/Footer.svelte";
     import { page } from "$app/state";
     import { pwaInfo } from 'virtual:pwa-info';
-    import OpenGraphHead from "../components/OpenGraphHead.svelte";
+    import OpenGraphHead from "$components/OpenGraphHead.svelte";
     import { tools } from "$lib/tools";
-    import ThemeColor from "../components/ThemeColor.svelte";
+    import ThemeColor from "$components/ThemeColor.svelte";
 
     if (page.error !== null) {
         page.data.footer = page.data.header = false

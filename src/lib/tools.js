@@ -19,9 +19,15 @@ export const tools = [
     },
     {
         name: "Image Base64",
-        path: "/image/base64",
+        path: "/encode/image/base64",
         icon: "🖼️",
         description: "Convert an image to a base64 string."
+    },
+    {
+        "name": "URL Encode/Decode",
+        "path": "/encode/url",
+        "icon": "🔗",
+        "description": "Encode or decode a URL to ensure it's properly formatted for web use."
     },
     {
         name: "Clock",

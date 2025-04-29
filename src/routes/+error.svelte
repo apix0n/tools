@@ -1,5 +1,5 @@
 <script>
-    import Container from "../components/Container.svelte";
+    import Container from "$components/Container.svelte";
     import { page } from "$app/stores";
 </script>
 

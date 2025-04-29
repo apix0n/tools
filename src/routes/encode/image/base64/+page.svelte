@@ -1,6 +1,6 @@
 <script>
-    import Container from "../../../components/Container.svelte";
-    import Top from "../../../components/Top.svelte";
+    import Container from "$components/Container.svelte";
+    import Top from "$components/Top.svelte";
     import { handleCopy } from "$lib/copy";
     import { onMount } from 'svelte';
 

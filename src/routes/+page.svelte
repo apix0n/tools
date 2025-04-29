@@ -1,6 +1,6 @@
 <script>
-    import Container from "../components/Container.svelte";
-    import ToolCard from "../components/ToolCard.svelte";
+    import Container from "$components/Container.svelte";
+    import ToolCard from "$components/ToolCard.svelte";
     import { tools } from "$lib/tools";
 </script>
 

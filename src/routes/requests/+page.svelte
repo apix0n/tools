@@ -1,8 +1,8 @@
 <script>
     export let data;
     import { page } from "$app/state";
-    import Container from "../../components/Container.svelte";
-    import Top from "../../components/Top.svelte";
+    import Container from "$components/Container.svelte";
+    import Top from "$components/Top.svelte";
 
     const baseUrl = page.url;
     
@@ -12,6 +12,7 @@
         { method: 'all', path: '/plain' },
         { method: 'GET', path: '/date/milliseconds' },
         { method: 'GET', path: '/date/iso' },
+        { method: 'GET', path: '/ua' }
     ];
 
     const methodColors = {

@@ -1,6 +1,6 @@
 <script>
-    import Container from "../../../components/Container.svelte";
-    import Top from "../../../components/Top.svelte";
+    import Container from "$components/Container.svelte";
+    import Top from "$components/Top.svelte";
 
     export let data;
     const { backgrounds, seasonEnd } = data;

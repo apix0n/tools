@@ -9,6 +9,9 @@ const config = {
         adapter: adapter(),
         version: {
             name: process.env.NODE_ENV === 'development' ? 'dev' : child_process.execSync('git rev-parse HEAD').toString().trim().slice(0, 7),
+        },
+        alias: {
+            $components: 'src/components'
         }
     }
 }
