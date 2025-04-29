@@ -16,7 +16,7 @@
         { name: 'Max Resolution (1280x720)', key: 'maxresdefault' },
         { name: 'High Quality (480x360)', key: 'hqdefault' },
         { name: 'Medium Quality (320x180)', key: 'mqdefault' },
-        { name: 'Standard Definition', key: 'sddefault' },
+        { name: 'Standard Definition (640x480)', key: 'sddefault' },
         { name: 'Default (120x90)', key: 'default' },
         { name: 'Player Background (480x360)', key: '0' },
         { name: 'High Quality Frame 1 (480x360)', key: 'hq1' },

@@ -8,11 +8,11 @@
     
     const endpoints = [
         { method: 'all', path: '/headers' },
+        { method: 'GET', path: '/ua' },
         { method: 'GET', path: '/ip' },
         { method: 'all', path: '/plain' },
         { method: 'GET', path: '/date/milliseconds' },
         { method: 'GET', path: '/date/iso' },
-        { method: 'GET', path: '/ua' }
     ];
 
     const methodColors = {
@@ -40,7 +40,7 @@
                     style="background-color: {methodColors[endpoint.method] || '#333'}">
                     {endpoint.method}
                 </span>
-                <code class="url">{baseUrl}{endpoint.path}</code>
+                <code class="url"><a href={baseUrl + endpoint.path} target="_blank">{baseUrl}{endpoint.path}</a></code>
                 <button 
                     on:click={(e) => handleCopy(e, baseUrl + endpoint.path)}
                     class="copy-btn">
@@ -81,6 +81,14 @@
         flex-grow: 1;
         word-break: break-all;
         width: 100%;
+        a {
+            all: inherit;
+            padding: unset;
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 
     @media screen and (max-width: 600px) {

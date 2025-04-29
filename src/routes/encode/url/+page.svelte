@@ -43,10 +43,14 @@
 <Top title={data.title}>
     <noscript>This app won't work on your browser. Enable JavaScript to continue.</noscript>
     <div class="input">
+        <!-- svelte-ignore a11y_autofocus -->
         <textarea
             bind:value={inputText}
             placeholder="Enter text to encode or decode"
             class="text-input"
+            autocomplete="off"
+            autocapitalize="off"
+            autofocus
             rows="5"
         ></textarea>
         <div class="buttons">
@@ -74,9 +78,6 @@
 </Container>
 
 <style>
-    .input {
-        margin: 1rem 0;
-    }
 
     .text-input {
         width: 100%;
@@ -85,7 +86,6 @@
         padding: 1rem;
         font-size: 1rem;
         font-family: monospace;
-        border: 2px solid var(--background-4);
         resize: vertical;
     }
 

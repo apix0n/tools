@@ -19,9 +19,10 @@
     }
     
     $: formats = [
-        { name: "Unix Epoch (without milliseconds)", value: Math.floor(now.getTime() / 1000) },
         { name: "Unix Epoch", value: now.getTime() },
-        { name: "ISO 8601", value: now.toISOString() },
+        { name: "Unix Epoch (seconds)", value: Math.floor(now.getTime() / 1000) },
+        { name: "ISO-8601", value: now.toISOString() },
+        { name: "ISO-8601 (without milliseconds)", value: now.toISOString().split('.')[0]+"Z" },
         { name: "UTC", value: now.toUTCString() },
         { name: "Locale Date String", value: now.toLocaleDateString() },
         { name: "Locale Time String", value: now.toLocaleTimeString() },
