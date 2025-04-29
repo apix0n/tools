@@ -1,10 +1,8 @@
-<!-- inspired by old vite layout - https://archive.ph/o6Lmn -->
-
 <script>
     export let tool;
 </script>
 
-<a href={tool.path} class="card">
+<a href={tool.path} class="card" target={tool.path.startsWith('http') ? '_blank' : null} rel={tool.path.startsWith('http') ? 'noopener noreferrer' : null}>
     <div class="icon">{tool.icon}</div>
     <h2 class="name">{tool.name}</h2>
     {#if tool.description}
@@ -54,5 +52,11 @@
         font-size: 0.9rem;
         color: var(--text-3);
         margin-top: .5rem;
+    }
+    
+    a[target="_blank"] h2::after {
+        content: '↗';
+        padding-left: .3em;
+        color: var(--text-3);
     }
 </style>

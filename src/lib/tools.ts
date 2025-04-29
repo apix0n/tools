@@ -1,4 +1,11 @@
-export const tools = [
+type Tool = {
+    name: string,
+    path: string,
+    icon: string,
+    description?: string,
+}
+
+export const tools: Array<Tool> = [
     {
         name: "Requests",
         path: "/requests",
@@ -52,5 +59,11 @@ export const tools = [
         path: "/osu/seasonal-backgrounds",
         icon: "🍂",
         description: "Get this season's osu! Seasonal Backgrounds."
-    }
+    },
+    {
+        name: "Screen & viewport size",
+        path: "/screen/size",
+        icon: "📺",
+        description: "Get your screen size and your User Agent's viewport."
+    },
 ];

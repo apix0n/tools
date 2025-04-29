@@ -7,7 +7,7 @@
 <Container>
     <div class="top">
         <h1>apix tools</h1>
-        <span>A set of web tools I created for things I needed to do at some
+        <span>A set of (web) tools I created for things I needed to do at some
             point, and couldn't do easily.</span>
         <div class="links">
             <a href="https://github.com/apix0n/tools" target="_blank">
