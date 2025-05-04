@@ -19,6 +19,12 @@ export const tools: Array<Tool> = [
         description: "Easily get important information about an AniList user."
     },
     {
+        name: "Twitch User Info",
+        path: "/twitch/user",
+        icon: "📼",
+        description: "Easily get important information about a Twitch user/streamer."
+    },
+    {
         name: "YouTube Thumbnails",
         path: "/youtube/thumbnails",
         icon: "🎬",
